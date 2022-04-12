@@ -12,24 +12,24 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ProductCrudController extends AbstractCrudController
 {
-    public static function getEntityFqcn(): string
-    {
-        return Product::class;
-    }
+	public static function getEntityFqcn(): string
+	{
+		return Product::class;
+	}
 
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            TextField::new('name'),
-            SlugField::new('slug')->setTargetFieldName('name'),
-            TextareaField::new('description'),
-            MoneyField::new('price')->setCurrency('EUR'),
-            ImageField::new('photo')
-                ->setBasePath('uploads/')
-                ->setUploadDir('public/uploads')
-                ->setUploadedFileNamePattern('[slug]-[contenthash].[extension]')
-                ->setRequired(false)
+	public function configureFields(string $pageName): iterable
+	{
+		return [
+			TextField::new('name'),
+			SlugField::new('slug')->setTargetFieldName('name'),
+			TextareaField::new('description'),
+			MoneyField::new('price')->setCurrency('EUR'),
+			ImageField::new('photo')
+				->setBasePath('uploads/')
+				->setUploadDir('public/uploads')
+				->setUploadedFileNamePattern('[slug]-[contenthash].[extension]')
+				->setRequired(false)
 
-        ];
-    }
+		];
+	}
 }
